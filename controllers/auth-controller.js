@@ -94,12 +94,16 @@ class AuthController {
 
     res.cookie("refreshToken", refreshToken, {
       maxAge: 1000 * 60 * 60 * 24 * 30,
-      httpOnly: true
+      httpOnly: true,
+      sameSite: 'none',
+      secure: true
     })
 
     res.cookie("accessToken", accessToken, {
       maxAge: 1000 * 60 * 60 * 24 * 30,
-      httpOnly: true
+      httpOnly: true,
+      sameSite: 'none',
+      secure: true
     })
 
     const userDto = new UserDto(user)
@@ -145,11 +149,15 @@ class AuthController {
     //put in cookies
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 30
+      maxAge: 1000 * 60 * 60 * 24 * 30,
+      sameSite: 'none',
+      secure: true
     });
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 30
+      maxAge: 1000 * 60 * 60 * 24 * 30,
+      sameSite: 'none',
+      secure: true
     });
     //response
     const userDto = new UserDto(user);
